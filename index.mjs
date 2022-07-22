@@ -10,7 +10,7 @@ const ctcAlice = accAlice.contract(backend);
 const users = await stdlib.newTestAccounts(10, sbal);
 const ctcWho = (whoi) =>
   users[whoi].contract(backend, ctcAlice.getInfo());
-
+users =[];
 const userAdd = async (whoi) => {
   const who = users[whoi];
   const ctc = ctcWho(whoi);
@@ -19,6 +19,7 @@ const userAdd = async (whoi) => {
  if (y<5) {
   console.log('Counter: ',parseInt(y));
   console.log('New Bob User', stdlib.formatAddress(who), ' has attached to the contract ');
+  users.push(who.getAddress());
 }
   
   else{
